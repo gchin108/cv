@@ -159,7 +159,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
+.env email1=gchin90@gmail.com
+email2=jojogc112@gmail.com
+email2_key=etwxtkzydtunrpzn
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
