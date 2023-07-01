@@ -11,6 +11,8 @@ app.config['SECRET_KEY'] = secrets.token_hex(16)
 email2 = os.getenv('email2')
 key = os.getenv('email2_key')
 email1 = os.getenv('email1')
+
+
 # print(f'email1={email1}, email2={email2}')
 
 
@@ -20,6 +22,7 @@ def send_mail(message):
         connection.login(user=email2, password=key)
         connection.sendmail(from_addr=email2, to_addrs=email1,
                             msg=f"Subject:Hello\n\n{message}")
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
