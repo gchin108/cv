@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import os
 import smtplib
 import secrets
@@ -28,7 +28,6 @@ def send_mail(message):
 def home():
     if request.method == "POST":
         print(f'request is POST')
-
         data = request.form
         message = f'Name: {data["name"]}\nEmail: {data["email"]}\nPhone: {data["phone"]}\nMessage:\n{data["message"]}'
         send_mail(message)
@@ -37,9 +36,15 @@ def home():
     return render_template('index.html', is_sent=False)
 
 
-@app.route('/about')
+@app.route('/about', methods=['GET', 'POST'])
 def about():
-    return render_template('about.html')
+    if request.method == "POST":
+        print(f'request is POST')
+        data = request.form
+        message = f'Name: {data["name"]}\nEmail: {data["email"]}\nPhone: {data["phone"]}\nMessage:\n{data["message"]}'
+        send_mail(message)
+        return render_template('about.html', is_sent=True)
+    return render_template('about.html', is_sent=False)
 
 
 if __name__ == "__main__":

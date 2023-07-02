@@ -22,6 +22,9 @@
 
 			<!-- Header -->
 			<header id="header">
+				{% if is_sent %}
+				<h3>Message Successfully Sent </h3>
+				{%endif%}
 				<ul class="icons">
 					<li><a href="https://github.com/gchin108" class="icon brands fa-github"><span
 							class="label">Github</span></a></li>
@@ -41,6 +44,7 @@
 					<header>
 						<h1>About Me</h1>
 					</header>
+					<span><img src="static/images/yoga.jpeg" width="500"></span>
 					<p style="font-size: 26px;"> Hello, and welcome to my portfolio. I'm a self-taught software
 						developer with a deep-seated
 						passion for coding that fuels my drive for continuous learning and improvement. Over the course
@@ -81,10 +85,70 @@
 				</header>
 				<ul>
 					<li><a href="{{url_for('home')}}">Homepage</a></li>
-					<li><a href="#">Elements</a></li>
+					<li><a href="https://jojo-posts.onrender.com/">My Blog</a></li>
 				</ul>
-
 			</nav>
+			<section>
+				<header class="major">
+					<h2>Hiking</h2>
+				</header>
+				<div class="mini-posts">
+					<article>
+						<a href="#" class="image"><img src="static/images/jojo_bridge.jpg" alt=""/></a>
+
+					</article>
+					<article>
+						<a href="#" class="image"><img src="static/images/jojo_meditates.jpg" alt=""/></a>
+						<p>Annapurna BaseCamp at 4,130 m!</p>
+					</article>
+
+				</div>
+			</section>
+			<!-- Section -->
+			<section>
+				<header class="major">
+					<h2>Get in touch</h2>
+				</header>
+				<p>If you're interested in discussing a project, collaborating, or just want to talk tech and yoga, I'd
+					love to hear from you. Reach out using the contact form below. Let's turn those
+					digital dreams into realities together!</p>
+
+
+				<form name="sentMessage" action="{{ url_for('about') }}" method="post">
+
+					<label>Name</label>
+					<input type="text" name="name" placeholder="Name" id="name"
+						   required data-validation-required-message="Please enter your name."><br>
+
+					<label>Email Address</label>
+					<input type="email" name="email" placeholder="Email Address"
+						   id="email"
+						   required data-validation-required-message="Please enter your email address."><br>
+
+
+					<label>Phone Number</label>
+					<input type="tel" name="phone" placeholder="Phone Number"
+						   id="phone"
+						   required data-validation-required-message="Please enter your phone number."><br>
+
+
+					<label>Message</label>
+					<textarea rows="5" name="message" placeholder="Message"
+							  id="message"
+							  required
+							  data-validation-required-message="Please enter a message."></textarea><br>
+
+					<button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+
+				</form>
+
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<p class="copyright">&copy; Giorgio Chin.<br> Design: <a href="https://html5up.net">HTML5 UP</a>.
+				</p>
+			</footer>
 
 
 		</div>
